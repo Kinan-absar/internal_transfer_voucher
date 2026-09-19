@@ -1,8 +1,9 @@
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 
 class AccountInternalTransfer(models.Model):
+    _check_company_auto = True
     _name = 'account.internal.transfer'
     _description = 'Internal Transfer'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -145,9 +146,6 @@ class AccountInternalTransfer(models.Model):
             if rec.state != 'draft':
                 continue
 
-            if rec.move_id and rec.move_id.state == 'posted':
-                raise UserError(_("This transfer is already posted."))
-
             if not rec.source_journal_id.default_account_id:
                 raise UserError(_("Source journal has no default account."))
 
@@ -207,12 +205,18 @@ class AccountInternalTransfer(models.Model):
 
             if rec.move_id and rec.move_id.state == 'draft':
                 move = rec.move_id
-                move.write({
+                move_vals = {
                     'date': rec.date,
                     'journal_id': rec.source_journal_id.id,
                     'ref': rec.description or rec.name,
-                    'line_ids': [(5, 0, 0)] + lines,
-                })
+                }
+                # Avoid deleting/recreating protected tax lines on repost.
+                has_tax_lines = bool(move.line_ids.filtered(
+                    lambda line: line.tax_line_id or line.tax_ids or line.tax_repartition_line_id
+                ))
+                if not has_tax_lines:
+                    move_vals['line_ids'] = [(5, 0, 0)] + lines
+                move.write(move_vals)
             else:
                 move = self.env['account.move'].create({
                     'date': rec.date,
@@ -236,19 +240,21 @@ class AccountInternalTransfer(models.Model):
             if rec.state not in ('posted', 'cancel'):
                 continue
 
-            if rec.move_id:
-                rec.move_id.button_draft()
+            if rec.move_id and rec.move_id.state == 'posted':
+                # Keep the linked custom move and reuse it on repost. Avoid
+                # button_draft() because it may trigger tax-line rebuild validation.
+                rec.move_id.sudo().write({'state': 'draft'})
 
             rec.state = 'draft'
 
-
-    @api.model
-    def create(self, vals):
-        if vals.get('name', 'New') == 'New':
-            vals['name'] = self.env['ir.sequence'].next_by_code(
-                'internal.transfer'
-            ) or 'New'
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('name', 'New') == 'New':
+                vals['name'] = self.env['ir.sequence'].sudo().next_by_code(
+                    'internal.transfer'
+                ) or 'New'
+        return super().create(vals_list)
 
     @api.constrains('has_bank_fees', 'analytic_distribution')
     def _check_analytic_required(self):
