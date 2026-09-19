@@ -1,31 +1,81 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<style>
-  .app-wrap{max-width:1100px;margin:0 auto;font-family:Arial,Helvetica,sans-serif;color:#252a34;line-height:1.65}
-  .hero{padding:52px 32px;border-radius:18px;background:linear-gradient(135deg,#f5f2f7,#eef5f6);text-align:center;margin:20px 0 30px}
-  .hero h1{font-size:40px;margin:0 0 12px;color:#3b2943}.hero p{font-size:19px;max-width:820px;margin:0 auto;color:#52606d}
-  .badges{margin-top:20px}.badge{display:inline-block;margin:4px;padding:7px 12px;border-radius:20px;background:#714b67;color:#fff;font-size:13px;font-weight:700}
-  .section{padding:26px 8px}.section h2{text-align:center;font-size:29px;color:#3b2943;margin:0 0 18px}.lead{text-align:center;max-width:850px;margin:0 auto 26px;color:#56606b}
-  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{border:1px solid #e5e7eb;border-radius:14px;padding:20px;background:#fff;box-shadow:0 3px 14px rgba(0,0,0,.05)}
-  .card h3{font-size:18px;margin:0 0 8px;color:#714b67}.card p{margin:0;color:#4b5563}.shot{margin:22px auto;text-align:center}.shot img{max-width:100%;border:1px solid #ddd;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.08)}
-  .flow{padding:22px;border-radius:14px;background:#f8fafc;text-align:center;font-weight:700;color:#3b2943;margin:16px 0}.note{padding:18px 20px;border-left:4px solid #714b67;background:#faf7fb;border-radius:8px;margin:18px 0}
-  .footer{text-align:center;padding:30px 10px;color:#6b7280;border-top:1px solid #e5e7eb;margin-top:30px}
-  @media(max-width:700px){.grid{grid-template-columns:1fr}.hero h1{font-size:31px}.hero{padding:34px 18px}}
-</style>
-</head><body><div class='app-wrap'>
-<div class='hero'><h1>Payment & Receipt Voucher</h1><p>Payment vouchers, receipt vouchers, internal transfers, reconciliation and weekly cash planning in one Odoo 18 accounting workflow.</p><div class='badges'><span class='badge'>Payments</span><span class='badge'>Receipts</span><span class='badge'>Internal Transfers</span><span class='badge'>Reconciliation</span><span class='badge'>Cash Planning</span></div></div>
-<section class='section'><h2>More Than a Voucher Form</h2><p class='lead'>The module connects operational cash movement with accounting entries, purchase orders, bills/invoices and weekly payment planning.</p><div class='grid'>
-<div class='card'><h3>Payment Vouchers</h3><p>Record outbound Cash, Cheque or Bank Transfer payments with partner, journal, account, analytic distribution, bank fees and printable voucher output.</p></div>
-<div class='card'><h3>Receipt Vouchers</h3><p>Record inbound receipts and connect them to receivables and customer invoices using the same controlled voucher approach.</p></div>
-<div class='card'><h3>Bill & Invoice Reconciliation</h3><p>Find matching vendor bills or customer invoices, reconcile and unreconcile directly from the voucher workflow, including partial-payment scenarios.</p></div>
-<div class='card'><h3>Purchase Order Allocation</h3><p>Allocate payment amounts across purchase orders, track previously paid and remaining balances, and warn before overpayment.</p></div>
-<div class='card'><h3>Internal Transfers</h3><p>Move funds between bank/cash journals with accounting entries and optional bank-fee handling.</p></div>
-<div class='card'><h3>Weekly Cash Planning</h3><p>Create planned payments and receipts, classify by category/project/priority/funding status, add lines into weekly plans and compare forecast to actual.</p></div>
-<div class='card'><h3>Execution Workflow</h3><p>Approved planned cash movements can be executed into vouchers or transfers and linked back to the originating plan.</p></div>
-<div class='card'><h3>Dashboards & Reporting</h3><p>Dashboard components for payment vouchers, receipt vouchers and cash-plan lines, plus bilingual printable voucher reports and Arabic amount-in-words support.</p></div>
-</div></section>
-<div class='shot'><img src='payment_voucher_form.png' alt='Payment Voucher Form'></div>
-<div class='shot'><img src='payment_voucher.png' alt='Payment Voucher PDF'></div>
-<div class='shot'><img src='internal_transfer_form.png' alt='Internal Transfer Form'></div>
-<section class='section'><h2>Optional Employee Portal Treasury Integration</h2><p class='lead'>When Employee Portal Suite is also installed, the included technical bridge can auto-install and expose authorized treasury approvals and weekly cash-plan functions in the employee portal.</p></section>
-<div class='footer'>Odoo 18 • Commercial OPL-1 License • Developed by Kinan</div>
-</div></body></html>
+<section class="container py-4">
+  <div class="text-center bg-light border rounded p-5 mb-5">
+    <h1 class="font-weight-bold mb-3" style="color:#3b2943;">Payment &amp; Receipt Voucher</h1>
+    <p class="lead text-muted mx-auto mb-4">Payment vouchers, receipt vouchers, internal transfers, reconciliation and weekly cash planning in one Odoo 18 accounting workflow.</p>
+    <div>
+      <span class="badge badge-pill px-3 py-2 m-1" style="background-color:#714b67;color:#ffffff;">Payments</span>
+      <span class="badge badge-pill px-3 py-2 m-1" style="background-color:#714b67;color:#ffffff;">Receipts</span>
+      <span class="badge badge-pill px-3 py-2 m-1" style="background-color:#714b67;color:#ffffff;">Internal Transfers</span>
+      <span class="badge badge-pill px-3 py-2 m-1" style="background-color:#714b67;color:#ffffff;">Reconciliation</span>
+      <span class="badge badge-pill px-3 py-2 m-1" style="background-color:#714b67;color:#ffffff;">Cash Planning</span>
+    </div>
+  </div>
+  <div class="mb-5">
+    <h2 class="text-center font-weight-bold mb-3" style="color:#3b2943;">More Than a Voucher Form</h2>
+    <p class="text-center text-muted mb-4">The module connects operational cash movement with accounting entries, purchase orders, bills/invoices and weekly payment planning.</p>
+    <div class="row">
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Payment Vouchers</h3>
+          <p class="text-muted mb-0">Record outbound Cash, Cheque or Bank Transfer payments with partner, journal, account, analytic distribution, bank fees and printable voucher output.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Receipt Vouchers</h3>
+          <p class="text-muted mb-0">Record inbound receipts and connect them to receivables and customer invoices using the same controlled voucher approach.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Bill &amp; Invoice Reconciliation</h3>
+          <p class="text-muted mb-0">Find matching vendor bills or customer invoices, reconcile and unreconcile directly from the voucher workflow, including partial-payment scenarios.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Purchase Order Allocation</h3>
+          <p class="text-muted mb-0">Allocate payment amounts across purchase orders, track previously paid and remaining balances, and warn before overpayment.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Internal Transfers</h3>
+          <p class="text-muted mb-0">Move funds between bank/cash journals with accounting entries and optional bank-fee handling.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Weekly Cash Planning</h3>
+          <p class="text-muted mb-0">Create planned payments and receipts, classify by category/project/priority/funding status, add lines into weekly plans and compare forecast to actual.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Execution Workflow</h3>
+          <p class="text-muted mb-0">Approved planned cash movements can be executed into vouchers or transfers and linked back to the originating plan.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 mb-4">
+        <div class="h-100 border rounded p-4 bg-white">
+          <h3 class="h5 font-weight-bold mb-2" style="color:#714b67;">Dashboards &amp; Reporting</h3>
+          <p class="text-muted mb-0">Dashboard components for payment vouchers, receipt vouchers and cash-plan lines, plus bilingual printable voucher reports and Arabic amount-in-words support.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center my-4">
+      <img class="img-fluid border rounded" src="payment_voucher_form.png" alt="Payment Voucher Form">
+    </div>
+    <div class="text-center my-4">
+      <img class="img-fluid border rounded" src="payment_voucher.png" alt="Payment Voucher PDF">
+    </div>
+    <div class="text-center my-4">
+      <img class="img-fluid border rounded" src="internal_transfer_form.png" alt="Internal Transfer Form">
+    </div>
+  </div>
+  <div class="mb-5">
+    <h2 class="text-center font-weight-bold mb-3" style="color:#3b2943;">Optional Employee Portal Treasury Integration</h2>
+    <p class="text-center text-muted mb-4">When Employee Portal Suite is also installed, the included technical bridge can auto-install and expose authorized treasury approvals and weekly cash-plan functions in the employee portal.</p>
+  </div>
+  <div class="text-center text-muted border-top pt-4 mt-5">Odoo 18 • Commercial OPL-1 License • Developed by Kinan</div>
+</section>
