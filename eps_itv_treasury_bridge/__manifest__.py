@@ -1,1 +1,32 @@
-{'name': 'Employee Portal Treasury Bridge', 'version': '18.0.1.5.0', 'summary': 'Adds CEO Payment Approvals & Weekly Cash Plans to the Employee Portal, connecting Employee Portal Suite with the Internal Transfer Voucher app.', 'description': '\nIntegration bridge between Employee Portal Suite and Internal Transfer Voucher.\n\nNeither of those two modules requires the other to install or work. Install this\nbridge module in addition to both if you want the CEO to review and approve\nweekly cash plan payments from inside the Employee Portal.\n\nAdds:\n✔ /my/employee/treasury/* portal routes (CEO only)\n✔ Payment Approvals & Weekly Cash Plans dashboard cards\n✔ Nav links in the portal layout\n    ', 'license': 'LGPL-3', 'author': 'Kinan', 'category': 'Human Resources', 'application': False, 'installable': True, 'depends': ['employee_portal_suite', 'internal_transfer_voucher', 'purchase'], 'data': ['views/treasury_templates.xml', 'views/dashboard_extension.xml', 'views/layout_extension.xml']}
+{
+    'name': 'Employee Portal Treasury Bridge',
+    'version': '18.0.1.5.0',
+    'summary': 'Connects Employee Portal Suite with Payment & Receipt Voucher treasury approvals and weekly cash plans.',
+    'description': """
+Technical integration bridge between Employee Portal Suite and Payment & Receipt Voucher.
+
+The two main applications remain independent. When both are available, this bridge
+installs automatically and adds authorized treasury functions to the Employee Portal.
+
+Adds:
+- CEO payment approvals and weekly cash plan access in the Employee Portal
+- /my/employee/treasury/* portal routes
+- Treasury dashboard cards and navigation links
+    """,
+    'license': 'OPL-1',
+    'author': 'Kinan',
+    'category': 'Human Resources',
+    'application': False,
+    'installable': True,
+    'auto_install': True,
+    'depends': [
+        'employee_portal_suite',
+        'internal_transfer_voucher',
+        'purchase',
+    ],
+    'data': [
+        'views/treasury_templates.xml',
+        'views/dashboard_extension.xml',
+        'views/layout_extension.xml',
+    ],
+}
