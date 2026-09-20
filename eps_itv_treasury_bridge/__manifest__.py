@@ -13,7 +13,7 @@ Adds:
 - /my/employee/treasury/* portal routes
 - Treasury dashboard cards and navigation links
     """,
-    'license': 'OPL-1',
+    'license': 'LGPL-3',
     'author': 'Kinan',
     'category': 'Human Resources',
     'application': False,
