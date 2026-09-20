@@ -5,6 +5,7 @@
     'summary': 'Payment, receipt, reconciliation, and weekly cash planning for Odoo 18',
     'description': '\nInternal Transfers & Payment Vouchers\n=====================================\n\nKey Features\n------------ \n• Internal Transfers between Bank and Cash journals \n• Payment Vouchers — outbound payments (Cash / Cheque / Bank Transfer)\n• Receipt Vouchers — inbound receipts (Cash / Cheque / Bank Transfer)\n• Dashboard on Payment Voucher and Receipt Voucher list views\n• Clean workflow: Draft → Posted → Cancel\n• Printable bilingual (English / Arabic) PDF vouchers\n• Amount in words (Arabic)\n• Optional analytic distribution\n• Vendor bill matching and payable reconciliation from payment vouchers\n• Customer invoice matching and receivable reconciliation from receipt vouchers\n    ',
     'author': 'Kinan',
+    'live_test_url': 'https://www.absar-alomran.com/request-demo',
     'website': 'https://absar-alomran.com',
     'license': 'OPL-1',
     'price': 14.99,
